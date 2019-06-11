@@ -42,12 +42,13 @@ class Channel
             $mobile = $to->toArray()['mobile'];
         }
         
-        $sig = hash('sha256', http_build_query($data = [
+        $dataStr = http_build_query($data = [
             'appkey' => $this->appkey,
             'random' => rand(100000000, 999999999),
             'time' => time(),
-            'mobile' => $mobile,
-        ]));
+        ]);
+        $dataStr .= '&mobile='.$mobile;
+        $sig = hash('sha256', $dataStr);
         $message->setSig($sig);
 
         return ($to->hasMulti()? '/v5/tlssmssvr/sendmultisms2' : '/v5/tlssmssvr/sendsms')."?sdkappid={$this->appid}&random={$data['random']}";
@@ -65,6 +66,8 @@ class Channel
         }
         $message->setTel($to);
 
-        return $this->http($this->make($to, $message), $message);
+        return json_encode(
+            $this->http($this->make($to, $message), $message)
+        );
     }
 }
