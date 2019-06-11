@@ -13,5 +13,12 @@
         "psr-4": {
             "Medz\\Laravel\\Notifications\\TencentCloudSMS\\": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Medz\\Laravel\\Notifications\\TencentCloudSMS\\ServiceProvider"
+            ]
+        }
     }
 }

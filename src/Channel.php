@@ -6,9 +6,13 @@ use Illuminate\Notifications\Notification;
 
 class Channel
 {
-    public function __construct(string $appid)
+    protected $appid;
+    protected $appkey;
+
+    public function __construct(string $appid, string $appkey)
     {
         $this->appid = $appid;
+        $this->appkey = $appkey;
     }
 
     protected function http(string $path, Messages\TextMessage $message)
