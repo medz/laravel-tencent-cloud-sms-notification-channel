@@ -1,0 +1,17 @@
+{
+    "name": "medz/tencent-cloud-sms-notification-channel",
+    "description": "腾讯云短信通知驱动",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Seven Du",
+            "email": "shiweidu@outlook.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Medz\\Laravel\\Notifications\\TencentCloudSMS\\": "src/"
+        }
+    }
+}
