@@ -26,7 +26,7 @@ class ParamsContainer
      */
     public function add($item)
     {
-        array_push($this->params, $item);
+        array_push($this->params, (string) $item);
 
         return $this;
     }

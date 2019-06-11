@@ -120,6 +120,8 @@ class TextMessage
             $message['params'] = $this->getParams()->toArray();
         }
 
+        $message['time'] = time();
+
         return $message;
     }
 

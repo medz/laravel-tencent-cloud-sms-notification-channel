@@ -16,7 +16,7 @@ class TelContainer
      */
     public function hasMulti(): bool
     {
-        return count($this->list) === 1;
+        return count($this->list) > 1;
     }
 
     /**
@@ -25,10 +25,10 @@ class TelContainer
     public function toArray(): array
     {
         if ($this->hasMulti()) {
-            return current($this->list);
+            return $this->list;
         }
 
-        return $this->list;
+        return current($this->list);
     }
 
     /**
