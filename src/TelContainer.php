@@ -46,4 +46,16 @@ class TelContainer
 
         return $this;
     }
+
+    public function toString(): string
+    {
+        return json_encode(
+            $this->toArray()
+        );
+    }
+
+    public function __toString()
+    {
+        return $this->toString();
+    }
 }
