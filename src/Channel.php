@@ -66,7 +66,7 @@ class Channel
         }
         $message->setTel($to);
 
-        return json_encode(
+        return json_decode(
             $this->http($this->make($to, $message), $message)
         );
     }
